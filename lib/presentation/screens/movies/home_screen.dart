@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cinemapedia/presentation/providers/movies/movies_providers.dart';
+import '../../widgets/widgets.dart';
 
 
 
@@ -37,6 +39,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     
     return Column(
       children: [
+
+        CustomAppbar(),
         Expanded(
           child: ListView.builder(
               itemCount: nowPlayingMovies.length,
