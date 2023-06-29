@@ -1,8 +1,11 @@
 
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:cinemapedia/presentation/providers/movies/movies_providers.dart';
+import '../../providers/providers.dart';
 import '../../widgets/widgets.dart';
+import 'package:cinemapedia/presentation/screens/screens.dart';
 
 
 
@@ -14,7 +17,9 @@ static const String name = 'home-screen';
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: _HomeView());
+      body: _HomeView(),
+      bottomNavigationBar: CustomBottomNavigationbar(),
+      );
   }
 }
 
@@ -35,23 +40,14 @@ class _HomeViewState extends ConsumerState<_HomeView> {
   @override
   Widget build(BuildContext context) {
 
-    final nowPlayingMovies = ref.watch(nowPlayingMoviesProviders);
-    
+    //final nowPlayingMovies = ref.watch(nowPlayingMoviesProviders);
+    final slideShowMovie= ref.watch(moviesSlideshowProvider);
     return Column(
       children: [
 
-        CustomAppbar(),
-        Expanded(
-          child: ListView.builder(
-              itemCount: nowPlayingMovies.length,
-              itemBuilder:(context, index) {
-          final movie = nowPlayingMovies[index];
-          return ListTile(
-            title: Text(movie.title),
-          );
-              }, 
-            ),
-        ),
+        const CustomAppbar(),
+        MoviesSlideshow(movies: slideShowMovie),
+        
       ],
     );
   }
