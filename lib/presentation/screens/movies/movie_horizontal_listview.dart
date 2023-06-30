@@ -98,6 +98,8 @@ class _Title extends StatelessWidget {
   }
 }
 
+// -------------------------------------------------- SLIDE ------------------------------------------------------------------------
+
 class _Slide extends StatelessWidget {
   final Movie movie;
   const _Slide({required this.movie});
@@ -110,7 +112,9 @@ class _Slide extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Imagen
+
+          // Imagen ------------------------------------------------------
+
           SizedBox(
             width: 150,
             height: 200,
@@ -136,7 +140,8 @@ class _Slide extends StatelessWidget {
             height: 5,
           ),
 
-          // Título
+
+          // Título ------------------------------------------------------
 
           SizedBox(
             width: 150,
@@ -147,7 +152,7 @@ class _Slide extends StatelessWidget {
             ),
           ),
 
-          //Raiting
+          //Raiting -------------------------------------------------------------
 
           SizedBox(
             width: 150,
