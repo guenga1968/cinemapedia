@@ -1,7 +1,7 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
+import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:go_router/go_router.dart';
 import '../../../config/helpers/human_formats.dart';
 import '../../../domain/entities/movie.dart';
 
@@ -29,6 +29,7 @@ class _MovieHorizontalListViewState extends State<MovieHorizontalListView> {
   @override
   void initState() {
     super.initState();
+    
     scrollController.addListener(() {
       if(widget.loadNextPage == null) return;
       if((scrollController.position.pixels + 200)>= scrollController.position.maxScrollExtent){

@@ -12,4 +12,7 @@ class HumanFormats {
     ).format(number);
     return formaterNumber;
   }
+
+ 
 }
+
