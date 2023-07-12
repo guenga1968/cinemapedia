@@ -1,27 +1,28 @@
-
 import 'package:flutter/material.dart';
+import '../../views/views.dart';
 import '../../widgets/widgets.dart';
-
-
 
 class HomeScreen extends StatelessWidget {
 
   static const String name = 'home-screen';
+  final int pageIndex;
 
-  final Widget childView;
+  const HomeScreen({super.key, required this.pageIndex});
 
-  const HomeScreen({
-    super.key, 
-    required this.childView
-    });
-
+  final viewRoutes = const <Widget> [
+    HomeView(),
+    SizedBox(), // Widget para las categorias
+    FavoritesView(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: childView,
-      bottomNavigationBar: const CustomBottomNavigationbar(),
-      );
+    return  Scaffold(
+      body: IndexedStack(
+        index: pageIndex,
+        children: viewRoutes,
+      ),
+      bottomNavigationBar: CustomBottomNavigationbar(currentIndex: pageIndex),
+    );
   }
 }
-

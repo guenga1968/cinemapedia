@@ -122,6 +122,7 @@ class _ActorsByMovie extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+
     final actorsByMovie = ref.watch(actorsByMovieProvider);
 
     if (actorsByMovie[movieId] == null) {
@@ -206,7 +207,7 @@ class _CustomSliverAppBar extends StatelessWidget {
             SizedBox.expand(
               child: Image.network(
                 movie.posterPath,
-                fit: BoxFit.scaleDown,
+                fit: (size.width< 500)? BoxFit.cover : BoxFit.fitWidth,
               loadingBuilder: (context, child, loadingProgress) {
                 if(loadingProgress != null){
                   return const SizedBox();

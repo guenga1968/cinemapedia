@@ -1,3 +1,4 @@
+import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -45,9 +46,7 @@ class HomeViewState extends ConsumerState<HomeView> {
           delegate: SliverChildBuilderDelegate(
         (context, index) {
 
-          initializeDateFormatting();
-          DateFormat dateFormat = DateFormat.EEEE('es').add_d();
-          final String day = dateFormat.format(DateTime.now()) ;
+          
 
           return Column(
             children: [
@@ -55,7 +54,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               MovieHorizontalListView(
                 movies: nowPlayingMovies,
                 title: 'En cines',
-                subtitle: '${day[0].toUpperCase()}${day.substring(1)}',
+                subtitle: HumanFormats.date(),
                 loadNextPage: () =>
                     ref.read(nowPlayingMoviesProviders.notifier).loadNextPage(),
               ),
