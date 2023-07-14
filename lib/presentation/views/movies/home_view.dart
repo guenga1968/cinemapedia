@@ -1,8 +1,6 @@
 import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import '../../providers/providers.dart';
 import '../../screens/screens.dart';
 import '../../widgets/widgets.dart';
@@ -60,7 +58,7 @@ class HomeViewState extends ConsumerState<HomeView> {
               ),
               MovieHorizontalListView(
                 movies: upcomingMovies,
-                title: 'Proximanete',
+                title: 'Proximamente',
                 subtitle: 'En este mes',
                 loadNextPage: () =>
                     ref.read(upcomingMoviesPorvider.notifier).loadNextPage(),
